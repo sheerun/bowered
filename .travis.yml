@@ -12,6 +12,7 @@ matrix:
   allow_failures:
     - rvm: ruby-head
     - rvm: rbx
+    - rvm: jruby-19mode
 notifications:
   email:
     - sheerun@sher.pl
