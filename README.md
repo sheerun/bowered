@@ -1,4 +1,4 @@
-# Bowered
+# Bowered [![Build Status](https://travis-ci.org/bowered/bowered.png?branch=master)](https://travis-ci.org/bowered/bowered)
 
 Bower client that integrates with Sprockets
 
