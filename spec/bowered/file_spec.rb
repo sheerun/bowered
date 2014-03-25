@@ -56,6 +56,26 @@ module Bowered
 
     end
 
+    describe ".mktmpdir" do
+
+      it 'returns instance of File' do
+        expect(File.mktmpdir).to be_a(File)
+      end
+
+      it 'yields instance of File' do
+        File.mktmpdir do |dir|
+          expect(dir).to be_a(File)
+        end
+      end
+
+      it 'creates directory on filesystem' do
+        File.mktmpdir do |dir|
+          expect(dir.exist?).to be_true
+        end
+      end
+
+    end
+
   end
 
 end

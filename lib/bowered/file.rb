@@ -1,4 +1,5 @@
 require 'bowered/forwarder'
+require 'tmpdir'
 
 module Bowered
   class File
@@ -11,6 +12,16 @@ module Bowered
 
     def inspect
       "Bowered::File[#{to_s.inspect}]"
+    end
+
+    def self.mktmpdir
+      if block_given?
+        ::Dir.mktmpdir do |dir|
+          yield File[dir]
+        end
+      else
+        File[::Dir.mktmpdir]
+      end
     end
 
   end
