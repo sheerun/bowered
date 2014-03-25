@@ -3,10 +3,10 @@ require 'bowered/forwarder'
 module Bowered
   class File
 
-    include Forwarder.new(:path, kind: Pathname)
+    include Forwarder.new(:path, kind: ::Pathname)
 
-    def self.[](*array)
-      File.new(::Pathname.new(*array.flatten))
+    def self.[](*path)
+      File.new(::Pathname.new(::File.join(*path)).cleanpath)
     end
 
     def inspect

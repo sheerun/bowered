@@ -21,6 +21,17 @@ module Bowered
       expect(File['foo'].join(File['bar'])).to eq(File['foo/bar'])
     end
 
+    it 'is idempotent' do
+      expect(File[File['bar']]).to eq(File['bar'])
+    end
+
+    it 'can accept Pathname' do
+      expect(File[Pathname.new('bar')]).to eq(File['bar'])
+    end
+
+    it 'can accept array' do
+      expect(File['./foo', 'bar']).to eq(File['foo/bar'])
+    end
 
     describe '#==' do
 
@@ -32,6 +43,9 @@ module Bowered
         expect(File['foo']).to eq(File['foo'])
       end
 
+      it 'ignores ./ at the beginning' do
+        expect(File['foo']).to eq(File['./foo'])
+      end
     end
 
     describe '#to_s' do
