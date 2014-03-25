@@ -8,7 +8,7 @@ module Bowered
     include Forwarder.new(:paths, kind: Hamster::Set)
 
     def self.[](*array)
-      Tree.new(Hamster.set(*array.flatten.map { |e| File[e] } ))
+      Tree.new(Hamster.set(*array.flatten.map { |e| Path[e] } ))
     end
 
     def inspect

@@ -1,6 +1,6 @@
 require "bowered/version"
 require "bowered/tree"
-require "bowered/file"
+require "bowered/path"
 
 module Bowered
   # Your code goes here...
